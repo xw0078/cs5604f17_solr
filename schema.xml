@@ -112,7 +112,10 @@
 
    <field name="raw_cleantext_s" type="string" indexed="true" stored="false"/>
    <field name="raw_source_s" type="string" indexed="true" stored="false"/>
+
    <field name="raw_geo_1_f" type="float" indexed="true" stored="false"/>
+   <field name="raw_geo_0_f" type="float" indexed="true" stored="false"/>
+   
    <field name="created_time_dt" type="date" indexed="true" stored="true"/>
    <field name="raw_tweet_id_s" type="string" indexed="true" stored="false"/>
    <field name="raw_to_user_id_s" type="string" indexed="true" stored="false"/>
@@ -122,7 +125,6 @@
    <field name="author_s" type="string" indexed="true" stored="false" multiValued="true"/>
    <field name="raw_language_s" type="string" indexed="true" stored="false"/>
    <field name="raw_colnum_i" type="int" indexed="true" stored="false"/>
-   <field name="raw_geo_0_f" type="float" indexed="true" stored="false"/>
    <field name="raw_geo_type_s" type="string" indexed="true" stored="false"/>
    <field name="raw_profile_image_s" type="string" indexed="true" stored="false"/>
    <field name="raw_from_user_id_s" type="string" indexed="true" stored="false"/>
@@ -225,7 +227,7 @@
    <dynamicField name="*_auth" type="string" indexed="true" stored="false" multiValued="true"/>
 
    <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
-   
+
    <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
    <dynamicField name="random_*" type="random" />
