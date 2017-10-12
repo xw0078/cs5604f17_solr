@@ -64,7 +64,7 @@
      -->
 
 <fields>
-   <!-- Valid attributes for fields:
+   	<!-- Valid attributes for fields:
      name: mandatory - the name for the field
      type: mandatory - the name of a field type from the
        <types> fieldType section
@@ -97,56 +97,80 @@
        value does not exist
      default: a value that should be used if no value is specified
        when adding a document.
-   -->
+   	-->
 
-<!-- field names should consist of alphanumeric or underscore characters only and
+	<!-- field names should consist of alphanumeric or underscore characters only and
       not start with a digit.  This is not currently strictly enforced,
       but other field names will not have first class support from all components
       and back compatibility is not guaranteed.  Names with both leading and
       trailing underscores (e.g. _version_) are reserved.
-   -->
+   	-->
+   	<field name="raw_tweet_id_s" type="string" indexed="true" stored="false"/>
+   	<field name="archive_source_s" type="string" indexed="true" stored="true"/>
+	<field name="raw_source_s" type="string" indexed="true" stored="false"/>
+	<field name="raw_text_s" type="string" indexed="true" stored="false"/>
+	<!-- screen-name #todo -->
+	<field name="raw_from_user_id_s" type="string" indexed="true" stored="false"/>
+	<!-- created-timestamp #todo -->
+	<field name="created_time_dt" type="date" indexed="true" stored="true"/>
+	<field name="raw_language_s" type="string" indexed="true" stored="false"/>
+	<field name="raw_geo_type_s" type="string" indexed="true" stored="false"/>
+	<field name="raw_geo_0_f" type="float" indexed="true" stored="false"/>
+	<field name="raw_geo_1_f" type="float" indexed="true" stored="false"/>
+	<field name="raw_to_user_id_s" type="string" indexed="true" stored="false"/>
+	<field name="raw_profile_image_s" type="string" indexed="true" stored="false"/>
+	<field name="raw_created_at_s" type="string" indexed="true" stored="false"/>
+	<field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
+	<!-- clean-text-cla #todo -->
+	<!-- clean-text-cta #todo -->
+	<!-- retweet #todo -->
+	<field name="location_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="t_year_s" type="string" indexed="true" stored="true"/>
+	<field name="t_month_s" type="string" indexed="true" stored="true"/>
+	<field name="hashtags_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="mentions_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="language_s" type="string" indexed="true" stored="true"/>
+	<field name="collection_name_s" type="string" indexed="true" stored="true"/>
+	<!-- long-url #todo -->
+	<field name="sner_people_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="sner_org_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="sner_loc_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="t_importance_s" type="string" indexed="true" stored="true"/>
+	<!-- webpage : html #todo -->
+	<!-- webpage : tweet-ids #todo -->
+	<!-- webpage : language #todo -->
+	<!-- webpage : url #todo -->
+	<!-- webpage : title #todo -->
+	<!-- webpage : author/publisher #todo -->
+	<!-- webpage : created-time #todo -->
+	<!-- webpage : clean-text #todo -->
+	<!-- webpage : clean-text-profanity #todo -->
+	<!-- webpage : sub-urls #todo -->
+	<!-- webpage : domain-name #todo -->
+	<!-- webpage : domain-location #todo -->
+	<!-- webpage : organization-name #todo -->
+	<!-- webpage : fetched-timestamp #todo -->
+	<!-- webpage : event #todo -->
+	<!-- webpage : webpage-importance #todo -->
+	<field name="topic_label_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="topic_probability_s" type="string" indexed="true" stored="false" multiValued="true"/>
+	<field name="cluster_label_s" type="string" indexed="true" stored="true"/>
+	<field name="cluster_probability_s" type="string" indexed="true" stored="true"/>
+	<!-- classification : classification-lable #todo -->
+	<!-- classification : real-world-events #todo -->
 
-   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-   <field name="text" type="string" indexed="true" stored="false" multiValued="true"/>
 
-   <field name="raw_cleantext_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_source_s" type="string" indexed="true" stored="false"/>
 
-   <field name="raw_geo_1_f" type="float" indexed="true" stored="false"/>
-   <field name="raw_geo_0_f" type="float" indexed="true" stored="false"/>
-   
-   <field name="created_time_dt" type="date" indexed="true" stored="true"/>
-   <field name="raw_tweet_id_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_to_user_id_s" type="string" indexed="true" stored="false"/>
-   <field name="archive_source_s" type="string" indexed="true" stored="true"/>
-   <field name="raw_text_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_created_at_s" type="string" indexed="true" stored="false"/>
-   <field name="author_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="raw_language_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_colnum_i" type="int" indexed="true" stored="false"/>
-   <field name="raw_geo_type_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_profile_image_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_from_user_id_s" type="string" indexed="true" stored="false"/>
-   <field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
-   <field name="language_s" type="string" indexed="true" stored="true"/>
-   <field name="collection_name_s" type="string" indexed="true" stored="true"/>
-   <field name="location_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="t_year_s" type="string" indexed="true" stored="true"/>
-   <field name="t_month_s" type="string" indexed="true" stored="true"/>
-   <field name="hashtags_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="mentions_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="classification_s" type="string" indexed="true" stored="true"/>
-   <field name="events_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="sner_people_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="sner_org_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="sner_loc_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="t_importance_s" type="string" indexed="true" stored="true"/>
 
-   <field name="topic_label_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="topic_probability_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="cluster_label_s" type="string" indexed="true" stored="true"/>
-   <field name="cluster_probability_s" type="string" indexed="true" stored="true"/>
+  	<field name="author_s" type="string" indexed="true" stored="false" multiValued="true"/>
+   	<field name="raw_colnum_i" type="int" indexed="true" stored="false"/>
+   	<field name="language_s" type="string" indexed="true" stored="true"/>
+   	<field name="collection_name_s" type="string" indexed="true" stored="true"/>
+   	<field name="classification_s" type="string" indexed="true" stored="true"/>
+   	<field name="events_s" type="string" indexed="true" stored="false" multiValued="true"/>
+   	<field name="sner_org_s" type="string" indexed="true" stored="false" multiValued="true"/>
+ 
     <!--
 	   <field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
 	   <field name="language_s" type="string" indexed="true" stored="true"/>
